@@ -4,7 +4,7 @@ body {
 section {
 	width: 100%;
 }
-#site-title {
+.site-title {
 	font-weight: 200;
 	font-size: 36px;
 	color: rgba(69, 161, 246, 1);
@@ -12,17 +12,17 @@ section {
 	margin-top: 20px;
 	display: inline-block;
 }
-#site-logo {
+.site-logo {
 	position: absolute;
 	top: 20px;
 	left: 166px;
 }
-#drop-menu {
+.drop-menu {
 	position: absolute;
 	right: 30px;
 	top: 28px;
 }
-#lp-hook {
+.section-header {
 	text-align: center;
 	font-weight: 400;
 	font-size: 40px;
@@ -105,8 +105,52 @@ footer {
   	font-weight: 200;
   	font-size: 16px;
 }
-#footer-link {
+.footer-link {
 	color: white;
+}
+.form-style {
+	background-color: rgba(69, 161, 246, 1);
+	margin: 0 auto;
+	width: 80%;
+	max-width: 500px;
+	text-align: center;
+	padding: 40px 0;
+	border-radius: 5px;
+}
+.form-input, .form-label {
+	display: block;
+}
+.form-label{
+	color: white;
+	font-size: 20px;
+	font-weight: 200;
+	margin-bottom: 5px;
+}
+.form-input {
+	margin: 0 auto;
+	width: 85%;
+	max-width: 300px;
+	border-radius: 5px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+.submit-button {
+	background-color: white;
+	font-size: 28px;
+	font-weight: 200;
+	margin-top: 20px;
+	border-radius: 5px;
+	padding: 4px 15px;
+}
+.form-change {
+	margin: 40px auto;
+	text-align: center;
+	font-weight: 200;
+	font-size: 20px;
+}
+.form-change-link {
+	color: rgba(69, 161, 246, 1);
+	font-weight: 300;
 }
 
 
