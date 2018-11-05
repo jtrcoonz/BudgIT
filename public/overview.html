@@ -8,15 +8,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="styles/shared.css">
+	<link rel="stylesheet" type="text/css" href="styles/overview.css">
 </head>
 
 <body>
-	<header role="banner">
+
+	<nav role="banner">
 		<h1 class="site-title">BudgIT</h1>
 		<img class="site-logo" src="img/BudgIT_logo.svg">
 		<img class="drop-menu" src="img/BudgIT_drop_menu.svg">
-	</header>
+
+	</nav>
+
+	<div class="black-cover" hidden>
+		<div class="menu-box">
+				<h1>Menu <span class="drop-menu-close">X</span></h1>
+				<p>asd</p>
+				<p>asd</p>
+		</div>
+	</div>
+
+
 
 	<h2 class="section-header">Budget<br>Overview</h2>
 	<main role="main" class="budget-overview">
@@ -30,6 +44,11 @@
 	<footer role="content-info">
 		<p>Made by <a class="footer-link" href="https://github.com/jtrcoonz" target="_blank">Jacob Coons</a></p>
 	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="/js/shared.js"></script>
+	<script src="/js/overview.js"></script>
+
 </body>
 
 </html>

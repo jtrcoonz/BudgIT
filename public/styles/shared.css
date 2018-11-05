@@ -163,36 +163,35 @@ fieldset {
 #form-label-main {
 	font-size: 26px;
 }
-.budget-overview {
-	text-align: center;
-	margin: 0 auto;
-}
-#remaining-budget {
-	width: 80%;
-	height: 65px;
-	border: solid 1px rgba(69, 161, 246, 1);
-	margin: 0 auto;
+
+
+
+
+
+.form-percentage-input{
+	display:inline-block;
+	width:15%;
+//	max-width: 300px;
 	border-radius: 5px;
-	font-size: 20px;
-}
-#remaining-budget > p {
-	margin: 10px 0px 0px 0px;
-}
-#remaining-budget-number {
-	font-weight: 500;
+	height: 25px;
+	margin-bottom: 10px;
 }
 
+.percentage-result{
+	display:inline-block;
+	width:60%;
+	background-color: white;
+//	max-width: 300px;
+	border-radius: 5px;
+	height: 25px;
+	margin-bottom: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.arrow{
+	width:10%;
+	text-align: center;
+	color:white;
+}
+.input-wrapper{
+	width: 100%;
+}
