@@ -13,43 +13,57 @@
 </head>
 
 <body>
-	<header role="banner">
+	<nav role="navigation">
 		<h1 class="site-title">BudgIT</h1>
 		<img class="site-logo" src="img/BudgIT_logo.svg">
 		<img class="drop-menu" src="img/BudgIT_drop_menu.svg">
-	</header>
+	</nav>
 
-	<section>
-		<h2 class="section-header">Log In</h2>
-		<form class="form-style">
-			<label for="login-email" class="form-label">Email</label>
-			<input type="email" name="login-email" id="login-email" class="form-input">
-			<label for="login-password" class="form-label">Password</label>
-			<input type="password" name="login-password" id="login-password" class="form-input">
-			<input type="submit" value="Submit" name="login-submit" class="submit-button">
-		</form>
-		<p class="form-change">Need an account? <br>
-		<a href="#" class="form-change-link">Sign Up</a></p>
-	<section>
+	<div class="black-cover" hidden>
+		<div class="menu-box">
+				<h1>Menu <span class="drop-menu-close">X</span></h1>
+				<p>asd</p>
+				<p>asd</p>
+		</div>
+	</div>
 
-	<section hidden>
-		<h2 class="section-header">Sign Up</h2>
-		<form class="form-style">
-			<label for="signup-email" class="form-label">Email</label>
-			<input type="email" name="signup-email" id="signup-email" class="form-input">
-			<label for="signup-password" class="form-label">Password</label>
-			<input type="password" name="signup-password" id="signup-password" class="form-input">
-			<label for="signup-password-confirm" class="form-label">Confirm Password</label>
-			<input type="password" name="signup-password-confirm" id="signup-password-confirm" class="form-input">
-			<input type="submit" value="Submit" name="signup-submit" class="submit-button">
-		</form>
-		<p class="form-change">Already have an account? <br>
-		<a href="#" class="form-change-link">Log In</a></p>
-	</section>
+	<main role="main">	
+		<section role="region" id="log-in-form">
+			<h2 class="section-header">Log In</h2>
+			<form class="form-style">
+				<label for="login-email" class="form-label">Email</label>
+				<input type="email" name="login-email" id="login-email" class="form-input">
+				<label for="login-password" class="form-label">Password</label>
+				<input type="password" name="login-password" id="login-password" class="form-input">
+				<input type="submit" value="Submit" name="login-submit" class="submit-button">
+			</form>
+			<p class="form-change">Need an account? <br>
+			<a href="#" class="form-change-link" id="to-sign-up">Sign Up</a></p>
+		<section>
+
+		<section role="region" id="sign-up-form" hidden>
+			<h2 class="section-header">Sign Up</h2>
+			<form class="form-style">
+				<label for="signup-email" class="form-label">Email</label>
+				<input type="email" name="signup-email" id="signup-email" class="form-input">
+				<label for="signup-password" class="form-label">Password</label>
+				<input type="password" name="signup-password" id="signup-password" class="form-input">
+				<label for="signup-password-confirm" class="form-label">Confirm Password</label>
+				<input type="password" name="signup-password-confirm" id="signup-password-confirm" class="form-input">
+				<input type="submit" value="Submit" name="signup-submit" class="submit-button">
+			</form>
+			<p class="form-change">Already have an account? <br>
+			<a href="#" class="form-change-link" id="to-log-in">Log In</a></p>
+		</section>
+	</main>
 
 	<footer role="content-info">
 		<p>Made by <a class="footer-link" href="https://github.com/jtrcoonz" target="_blank">Jacob Coons</a></p>
 	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="js/shared.js"></script>
+	<script src="js/auth.js"></script>
 </body>
 
 </html>

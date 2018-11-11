@@ -1,0 +1,25 @@
+.form-percentage-input {
+	display:inline-block;
+	width:15%;
+	max-width: 300px;
+	border-radius: 5px;
+	height: 25px;
+	margin-bottom: 10px;
+}
+.percentage-result {
+	display:inline-block;
+	width:60%;
+	background-color: white;
+	max-width: 300px;
+	border-radius: 5px;
+	height: 25px;
+	margin-bottom: 10px;
+}
+.arrow {
+	width:10%;
+	text-align: center;
+	color:white;
+}
+.input-wrapper {
+	width: 100%;
+}
