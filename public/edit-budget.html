@@ -13,19 +13,18 @@
 </head>
 
 <body>
-
-</body>
 	<nav role="navigation">
-		<h1 class="site-title">BudgIT</h1>
-		<img class="site-logo" src="img/BudgIT_logo.svg">
-		<img class="drop-menu" src="img/BudgIT_drop_menu.svg">
+		<a id="site-title" href="index.html">BudgIT</a>
+		<img id="site-logo" src="img/BudgIT_logo.svg">
+		<img id="drop-menu" src="img/BudgIT_drop_menu.svg">
 	</nav>
 
-	<div class="black-cover" hidden>
-		<div class="menu-box">
-				<h1>Menu <span class="drop-menu-close">X</span></h1>
-				<p>asd</p>
-				<p>asd</p>
+	<div id="black-cover" hidden>
+		<div id="menu-box">
+			<h1>Menu<img src="img/BudgIT_close_drop_menu.svg" id="drop-menu-close"></h1>
+			<a href="overview.html" class="link drop-menu-link">Budget Overview</a>
+			<a href="edit-budget.html" class="link drop-menu-link">Edit Budget</a>
+			<a href="#" class="link drop-menu-link">+ Add Expense</a>
 		</div>
 	</div>
 
@@ -64,4 +63,5 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script src="js/shared.js"></script>
+</body>
 </html>
