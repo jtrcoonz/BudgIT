@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BudgIT | Take Control of Your Wallet</title>
+	<meta name="description" content="Introducing BudgIT, a simple, effective, secure way to manage your finances. Take control of your wallet. Don't lose it, BudgIT!" >
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/shared.css">
+	<link rel="stylesheet" type="text/css" href="styles/auth.css">
+</head>
+
+<body>
+	<nav role="navigation">
+		<a id="site-title" href="index.html">BudgIT</a>
+		<img id="site-logo" src="img/BudgIT_logo.svg">
+		<img id="drop-menu" src="img/BudgIT_drop_menu.svg">
+	</nav>
+
+	<div id="black-cover" hidden>
+		<div id="menu-box">
+			<h1>Menu<img src="img/BudgIT_close_drop_menu.svg" id="drop-menu-close"></h1>
+			<a href="overview.html" class="link drop-menu-link">Budget Overview</a>
+			<a href="edit-budget.html" class="link drop-menu-link">Edit Budget</a>
+			<a href="#" class="link drop-menu-link">+ Add Expense</a>
+		</div>
+	</div>
+
+	<main role="main">	
+		<h2 class="section-header">Add Expense</h2>
+		<form class="form-style" id="expense-form">
+			<label for="description" class="form-label">Description</label>
+			<input type="text" name="description" id="description" class="form-input">
+			<label for="category" class="form-label">Select Category</label>
+			<input type="text" name="category" id="category" class="form-input">
+			<label for="value" class="form-label">Enter Expense</label>
+			<input type="text" name="value" id="value" class="form-input">
+			<label for="date" class="form-label">Date</label>
+			<input type="text" name="date" id="date" class="form-input">
+			<input type="submit" value="Submit" name="login-submit" class="submit-button">
+		</form>
+	</main>
+
+	<footer role="content-info">
+		<p>Made by <a class="footer-link" href="https://github.com/jtrcoonz" target="_blank">Jacob Coons</a></p>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="js/shared.js"></script>
+	<script src="js/add-expense.js"></script>
+</body>
+
+</html>
