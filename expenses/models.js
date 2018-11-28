@@ -24,6 +24,7 @@ const ExpenseSchema = mongoose.Schema({
 
 ExpenseSchema.methods.serialize = function() {
   return {
+    id: this._id || '',
     description: this.description || '',
     category: this.category || '',
     value: this.value || '',
