@@ -1,7 +1,8 @@
 $("#to-sign-up").click(function() {
-	$("#sign-up-form").show();
+	$("#log-in-form").hide();
+	$("#sign-up-form").fadeIn();
 })
 $("#to-log-in").click(function() {
-	$("#sign-up-form").hide()
-	$("#log-in-form").show()
+	$("#sign-up-form").hide();
+	$("#log-in-form").fadeIn();
 })
