@@ -1,3 +1,4 @@
+let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 $(function() {
 	const settings = {
 		url: "/api/expenses/",
@@ -9,11 +10,12 @@ $(function() {
 		success: function(data) {
 			console.log(data);
 			let renderedExpenses = data.expenses.map(function(expense) {
+				let date = new Date(expense.date)
 				return `
 				<div id="expense-list-item">
 					<div id="list-item-left">
 						<p><span>${expense.description}</span><br>
-						${expense.date}</p>
+						${date.toLocaleDateString("en-US")}</p>
 					</div>
 					<div id="list-item-right">
 						<p><span>$</span><span>${expense.value}</span><br>

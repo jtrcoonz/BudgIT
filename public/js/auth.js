@@ -11,10 +11,10 @@ $("#log-in-form").submit(function(event) {
 	event.preventDefault();
 
 	let loginUser = {
-		username: $("log-in-username").val(),
+		username: $("#log-in-username").val(),
 		password: $("#log-in-password").val()
 	};
-
+	console.log(loginUser);
 	const settings = {
 		url: "/api/auth/login",
 		data: JSON.stringify(loginUser),
@@ -33,10 +33,12 @@ $("#log-in-form").submit(function(event) {
 	$.ajax(settings);
 });
 
-$("#log-in-form").submit(function(event) {
+$("#sign-up-form").submit(function(event) {
 	event.preventDefault();
 
 	let signUpUser = {
+		firstName: $('#first-name').val(),
+		lastName: $('#last-name').val(),
 		username: $("#sign-up-username").val(),
 		password: $("#sign-up-password").val()
 	};

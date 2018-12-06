@@ -5,23 +5,29 @@
 }
 .form-percentage-input {
 	display:inline-block;
-	width:15%;
+	width: 20%;
 	max-width: 300px;
 	border-radius: 5px;
 	height: 25px;
 	font-weight: 300;
-	padding-right: 2px;
-	text-align: right;
+	text-align: left;
 
 }
 .percent {
-	width: 10%;
+	width: 0;
 	text-align: center;
+	position: relative;
+	right: 10%;
+}
+.arrow {
+	width: 5%;
+	position: relative;
 	color: white;
+	right: 2%;
 }
 .percentage-result {
 	display:inline-block;
-	width:60%;
+	width: 50%;
 	background-color: white;
 	max-width: 300px;
 	border-radius: 5px;
@@ -35,4 +41,12 @@
 	bottom: 25px;
 	right: 100px;
 	
+}
+@media and screen only (min-width: 400px) {
+	.form-percentage-input {
+		width: 15%;
+	}
+	.percentage-result {
+		width: 60%;
+	}
 }
