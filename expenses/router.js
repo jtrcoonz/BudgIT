@@ -7,6 +7,7 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 
+
 router.get('/', (req, res) => {
   Expense
     .find() 
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
 
 router.post('/', jsonParser, (req, res) => {
 
-  const requiredFields = ['description', 'category', 'value', 'date'];
+  const requiredFields = ['description', 'category', 'value'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {

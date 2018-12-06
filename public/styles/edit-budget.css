@@ -1,10 +1,22 @@
+.input-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 370px;
+	margin-bottom: 10px;
+}
 .form-percentage-input {
 	display:inline-block;
 	width:15%;
 	max-width: 300px;
 	border-radius: 5px;
 	height: 25px;
-	margin-bottom: 10px;
+	font-weight: 300;
+	padding-left: 5px;
+}
+.arrow {
+	width: 10%;
+	text-align: center;
+	color: white;
 }
 .percentage-result {
 	display:inline-block;
@@ -12,14 +24,9 @@
 	background-color: white;
 	max-width: 300px;
 	border-radius: 5px;
-	height: 25px;
-	margin-bottom: 10px;
+	vertical-align: middle;
+	height: 29px;
+	line-height: 30px;
+	margin-bottom: 2px;
 }
-.arrow {
-	width:10%;
-	text-align: center;
-	color:white;
-}
-.input-wrapper {
-	width: 100%;
-}
+

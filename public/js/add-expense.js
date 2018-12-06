@@ -11,7 +11,7 @@ $("#expense-form").submit(function(event) {
 	console.log(expense);
 
 	const settings = {
-		url: "/api/expenses",
+		url: "/api/expenses/",
 		data: JSON.stringify(expense),
 		headers: {
 		},

@@ -25,7 +25,7 @@
 			<h1>Menu<img src="img/BudgIT_close_drop_menu.svg" id="drop-menu-close"></h1>
 			<a href="overview.html" class="link drop-menu-link">Budget Overview</a>
 			<a href="edit-budget.html" class="link drop-menu-link">Edit Budget</a>
-			<a href="#" class="link drop-menu-link">+ Add Expense</a>
+			<a href="add-expense.html" class="link drop-menu-link">+ Add Expense</a>
 		</div>
 	</div>
 
@@ -34,8 +34,19 @@
 		<div id="remaining-budget">
 			<p><span id="remaining-budget-number">$8,000 / %10,000</span><br>Total Budget Remaining</p>
 		</div>
-		<div class="container-50">
+		<div class="row">
+			<p class="column" id="left"><span class="column-header">Food & Toiletries</span><br><span class="column-value"><span>$</span>1500<span> / $</span>1500</span></p><p class="column" id="right"><span class="column-header">Housing & Utilities</span><br><span class="column-value"><span>$</span>2000<span> / $</span>3000</span></p>
 		</div>
+		<div class="row">
+			<p class="column" id="left"><span class="column-header">Transportation</span><br><span class="column-value"><span>$</span>1000<span> / $</span>1000</span></p><p class="column" id="right"><span class="column-header">Health & Insurance</span><br><span class="column-value"><span>$</span>1500<span> / $<span>2500</span></p>
+		</div>
+		<div class="row">
+			<p class="column" id="left"><span class="column-header">Recreation & Leisure</span><br><span class="column-value"><span>$</span>1500<span> / $</span>1500</span></p><p class="column" id="right"><span class="column-header">Miscellaneous</span><br><span class="column-value"><span>$</span>500<span> / $</span>500</span></p>
+		</div>
+		<h2 class="section-header">Expense List</h2>
+		<div id="expense-list">
+		</div>
+		<button class="button-style" id="add-expense-button" onclick="location.href='add-expense.html'">+ Add Expense</button>
 	</main>
 
 	<footer role="content-info">
@@ -44,6 +55,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script src="js/shared.js"></script>
+	<script src="js/overview.js"></script>
 
 </body>
 

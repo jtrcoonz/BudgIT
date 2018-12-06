@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles/shared.css">
-	<link rel="stylesheet" type="text/css" href="styles/auth.css">
+	<link rel="stylesheet" type="text/css" href="styles/add-expense.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 			<h1>Menu<img src="img/BudgIT_close_drop_menu.svg" id="drop-menu-close"></h1>
 			<a href="overview.html" class="link drop-menu-link">Budget Overview</a>
 			<a href="edit-budget.html" class="link drop-menu-link">Edit Budget</a>
-			<a href="#" class="link drop-menu-link">+ Add Expense</a>
+			<a href="add-expense.html" class="link drop-menu-link">+ Add Expense</a>
 		</div>
 	</div>
 
@@ -34,11 +34,18 @@
 			<label for="description" class="form-label">Description</label>
 			<input type="text" name="description" id="description" class="form-input">
 			<label for="category" class="form-label">Select Category</label>
-			<input type="text" name="category" id="category" class="form-input">
+			<select name="category" id="category" class="form-input">
+				<option value="Food & Toiletries">Food & Toiletries</option>
+				<option value="Housing & Utilities">Housing & Utilities</option>
+				<option value="Transportation">Transportation</option>
+				<option value="Health & Insurance">House & Insurance</option>
+				<option value="Recreation & Leisure">Recreation & Leisure</option>
+				<option value="Miscellaneous">Miscellaneous</option>
+			</select>
 			<label for="value" class="form-label">Enter Expense</label>
 			<input type="text" name="value" id="value" class="form-input">
 			<label for="date" class="form-label">Date</label>
-			<input type="text" name="date" id="date" class="form-input">
+			<input type="date" name="date" id="date" class="form-input">
 			<input type="submit" value="Submit" name="login-submit" class="submit-button">
 		</form>
 	</main>
