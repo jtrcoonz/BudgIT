@@ -19,28 +19,26 @@
 	</nav>
 
 	<main role="main">	
-		<section role="region" id="log-in-form">
+		<section role="region" id="log-in">
 			<h2 class="section-header">Log In</h2>
-			<form class="form-style">
-				<label for="login-email" class="form-label">Email</label>
-				<input type="email" name="login-email" id="login-email" class="form-input">
-				<label for="login-password" class="form-label">Password</label>
-				<input type="password" name="login-password" id="login-password" class="form-input">
+			<form class="form-style" id="log-in-form">
+				<label for="log-in-username" class="form-label">Username</label>
+				<input type="text" name="log-in-username" id="log-in-username" class="form-input">
+				<label for="log-in-password" class="form-label">Password</label>
+				<input type="password" name="log-in-password" id="log-in-password" class="form-input">
 				<input type="submit" value="Submit" name="login-submit" class="submit-button">
 			</form>
 			<p class="form-change">Need an account? <br>
 			<a href="#" class="link" id="to-sign-up">Sign Up</a></p>
 		</section>
 
-		<section role="region" id="sign-up-form" hidden>
+		<section role="region" id="sign-up" hidden>
 			<h2 class="section-header">Sign Up</h2>
-			<form class="form-style">
-				<label for="signup-email" class="form-label">Email</label>
-				<input type="email" name="signup-email" id="signup-email" class="form-input">
-				<label for="signup-password" class="form-label">Password</label>
-				<input type="password" name="signup-password" id="signup-password" class="form-input">
-				<label for="signup-password-confirm" class="form-label">Confirm Password</label>
-				<input type="password" name="signup-password-confirm" id="signup-password-confirm" class="form-input">
+			<form class="form-style id="sign-up-form">
+				<label for="sign-up-username" class="form-label">Username</label>
+				<input type="text" name="sign-up-username" id="sign-up-username" class="form-input">
+				<label for="sign-up-password" class="form-label">Password</label>
+				<input type="password" name="sign-up-password" id="sign-up-password" class="form-input">
 				<input type="submit" value="Submit" name="signup-submit" class="submit-button">
 			</form>
 			<p class="form-change">Already have an account? <br>

@@ -1,8 +1,61 @@
 $("#to-sign-up").click(function() {
-	$("#log-in-form").hide();
-	$("#sign-up-form").fadeIn();
-})
+	$("#log-in").hide();
+	$("#sign-up").fadeIn();
+});
 $("#to-log-in").click(function() {
-	$("#sign-up-form").hide();
-	$("#log-in-form").fadeIn();
-})
+	$("#sign-up").hide();
+	$("#log-in").fadeIn();
+});
+
+$("#log-in-form").submit(function(event) {
+	event.preventDefault();
+
+	let loginUser = {
+		username: $("log-in-username").val(),
+		password: $("#log-in-password").val()
+	};
+
+	const settings = {
+		url: "/api/auth/login",
+		data: JSON.stringify(loginUser),
+		headers: {
+		},
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		type: "POST",
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	};
+	$.ajax(settings);
+});
+
+$("#log-in-form").submit(function(event) {
+	event.preventDefault();
+
+	let signUpUser = {
+		username: $("#sign-up-username").val(),
+		password: $("#sign-up-password").val()
+	};
+
+	const settings = {
+		url: "/api/users",
+		data: JSON.stringify(signUpUser),
+		headers: {
+		},
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		type: "POST",
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	};
+	$.ajax(settings);
+});
+
