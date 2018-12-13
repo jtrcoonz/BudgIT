@@ -1,6 +1,6 @@
-'use strict';
-const bcrypt = require('bcryptjs');
-const mongoose = require('mongoose');
+"use strict";
+const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
@@ -14,58 +14,50 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  firstName: {type: String, required: true},
-  lastName: {type: String, required: true}
-});
-
-const BudgetSchema = mongoose.Schema({
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   income: {
     type: Number,
-    required: true
+    default: 1000
   },
   foodAndToiletries: {
     type: Number,
-    required: true
+    default: 50
   },
   housingAndUtilities: {
     type: Number,
-    required: true
+    default: 10
   },
   transportation: {
     type: Number,
-    required: true
+    default: 10
   },
   healthAndInsurance: {
     type: Number,
-    required: true
+    default: 10
   },
   recreationAndLeisure: {
     type: Number,
-    required: true
+    default: 10
   },
   miscellaneous: {
     type: Number,
-    required: true
+    default: 10
   }
 });
 
 UserSchema.methods.serialize = function() {
   return {
-    username: this.username || '',
-    firstName: this.firstName || '',
-    lastName: this.lastName || ''
-  };
-};
-
-BudgetSchema.methods.serialize = function() {
-  return {
-    income: this.income || '',
-    foodAndToiletries: this.foodAndToiletries || '',
-    housingAndUtilities: this.housingAndUtilities || '',
-    transportation: this.transportation || '',
-    healthAndInsurance: this.healthAndInsurance || '',
-    recreationAndLeisure: this.recreationAndLeisure || '',
-    miscellaneous: this.miscellaneous || ''
+    username: this.username || "",
+    firstName: this.firstName || "",
+    lastName: this.lastName || "",
+    income: this.income || "",
+    foodAndToiletries: this.foodAndToiletries || "",
+    housingAndUtilities: this.housingAndUtilities || "",
+    transportation: this.transportation || "",
+    healthAndInsurance: this.healthAndInsurance || "",
+    recreationAndLeisure: this.recreationAndLeisure || "",
+    miscellaneous: this.miscellaneous || ""
   };
 };
 
@@ -77,8 +69,6 @@ UserSchema.statics.hashPassword = function(password) {
   return bcrypt.hash(password, 10);
 };
 
-const User = mongoose.model('User', UserSchema);
-const Budget = mongoose.model('Budget', BudgetSchema);
+const User = mongoose.model("User", UserSchema);
 
-module.exports = {User};
-module.exports = {Budget};
+module.exports = { User };

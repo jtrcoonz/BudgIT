@@ -1,7 +1,7 @@
-$("#drop-menu").click(function(){
+$("#drop-menu").click(function() {
   $("#black-cover").fadeIn();
-})
+});
 
-$("#drop-menu-close").click(function(){
+$("#drop-menu-close").click(function() {
   $("#black-cover").fadeOut();
-})
+});
