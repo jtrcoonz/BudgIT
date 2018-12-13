@@ -30,12 +30,12 @@ $('#budget-form').submit(function (event) {
 
 	let budget = {
 		income: $('#total-income').val(),
-		foodAndToiletries: Number($('food-and-toiletries-result').val()),
-		housingAndUtilities: Number($('housing-and-utilities-result').val()),
-		transportation: Number($('transportation-result').val()),
-		healthAndInsurance: Number($('health-and-insurance-result').val()),
-		recreationAndLeisure: Number($('recreation-and-leisure').val()),
-		miscellaneous: Number($('miscellaneous').val())
+		foodAndToiletries: Number($('#food-and-toiletries').val()),
+		housingAndUtilities: Number($('#housing-and-utilities').val()),
+		transportation: Number($('#transportation').val()),
+		healthAndInsurance: Number($('#health-and-insurance').val()),
+		recreationAndLeisure: Number($('#recreation-and-leisure').val()),
+		miscellaneous: Number($('#miscellaneous').val())
 	};
 	const settings = {
 		url: "/api/users",
