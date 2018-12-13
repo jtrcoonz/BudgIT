@@ -1,3 +1,5 @@
+let token = localStorage.getItem("token");
+
 let totalIncome = $("#total-income").val();
 
 $("#total-income").on("input", function(event) {
@@ -31,9 +33,14 @@ $(".form-percentage-input").on("input", function(event) {
   }
 });
 
+
+
+TODO get the values from /api/users
+     populate the form!
+
 $("#budget-form").submit(function(event) {
   event.preventDefault();
-
+  let token = localStorage.getItem("token");
   let budget = {
     income: $("#total-income").val(),
     foodAndToiletries: Number($("#food-and-toiletries").val()),
@@ -46,7 +53,9 @@ $("#budget-form").submit(function(event) {
   const settings = {
     url: "/api/users/",
     data: JSON.stringify(budget),
-    headers: {},
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     type: "PUT",

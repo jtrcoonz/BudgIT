@@ -1,13 +1,23 @@
+let token = localStorage.getItem("token");
+
 let options = {
   weekday: "long",
   year: "numeric",
   month: "long",
   day: "numeric"
 };
+
+
+
+TODO get the values from /api/users
+     populate the upper section. !  -> xxx/1500
+
+
+
 $(function() {
   const settings = {
     url: "/api/expenses/",
-    headers: {},
+    headers: { Authorization: `Bearer ${token}` },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     type: "GET",

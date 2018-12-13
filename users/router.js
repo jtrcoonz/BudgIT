@@ -1,13 +1,28 @@
 "use strict";
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const passport = require("passport");
 const { User } = require("./models");
 const { Budget } = require("./models");
 
 const router = express.Router();
 
 const jsonParser = bodyParser.json();
+
+const jwtAuth = passport.authenticate("jwt", { session: false });
+
+router.put("/", jwtAuth, jsonParser, (req, res) => {
+  let userID = req.user.id;
+  // TODO
+  //update that user with the numbers we got on body from  overview.html
+});
+
+router.get("/", jwtAuth, (req, res) => {
+  let userID = req.user.id;
+  // TODO
+  // send all the user info back!
+  // to update all percentages on overview.html
+});
 
 router.post("/", jsonParser, (req, res) => {
   const requiredFields = ["username", "password"];
@@ -118,10 +133,11 @@ router.post("/", jsonParser, (req, res) => {
     });
 });
 
-router.get("/", (req, res) => {
-  return User.find()
-    .then(users => res.json(users.map(user => user.serialize())))
-    .catch(err => res.status(500).json({ message: "Internal server error" }));
-});
+// This is a test route
+// router.get("/", (req, res) => {
+//   return User.find()
+//     .then(users => res.json(users.map(user => user.serialize())))
+//     .catch(err => res.status(500).json({ message: "Internal server error" }));
+// });
 
 module.exports = { router };
