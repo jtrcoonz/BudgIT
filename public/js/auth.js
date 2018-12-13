@@ -14,7 +14,6 @@ $("#log-in-form").submit(function(event) {
 		username: $("#log-in-username").val(),
 		password: $("#log-in-password").val()
 	};
-	console.log(loginUser);
 	const settings = {
 		url: "/api/auth/login",
 		data: JSON.stringify(loginUser),
@@ -25,6 +24,7 @@ $("#log-in-form").submit(function(event) {
 		type: "POST",
 		success: function(data) {
 			console.log(data);
+			window.location.href = "overview.html";
 		},
 		error: function(err) {
 			console.log(err);
@@ -53,6 +53,7 @@ $("#sign-up-form").submit(function(event) {
 		type: "POST",
 		success: function(data) {
 			console.log(data);
+			window.location.href = "edit-budget.html";
 		},
 		error: function(err) {
 			console.log(err);

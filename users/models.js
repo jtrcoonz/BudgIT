@@ -14,8 +14,39 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  firstName: {type: String, default: '', required: false},
-  lastName: {type: String, default: '', required: false}
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true}
+});
+
+const BudgetSchema = mongoose.Schema({
+  income: {
+    type: Number,
+    required: true
+  },
+  foodAndToiletries: {
+    type: Number,
+    required: true
+  },
+  housingAndUtilities: {
+    type: Number,
+    required: true
+  },
+  transportation: {
+    type: Number,
+    required: true
+  },
+  healthAndInsurance: {
+    type: Number,
+    required: true
+  },
+  recreationAndLeisure: {
+    type: Number,
+    required: true
+  },
+  miscellaneous: {
+    type: Number,
+    required: true
+  }
 });
 
 UserSchema.methods.serialize = function() {
@@ -23,6 +54,18 @@ UserSchema.methods.serialize = function() {
     username: this.username || '',
     firstName: this.firstName || '',
     lastName: this.lastName || ''
+  };
+};
+
+BudgetSchema.methods.serialize = function() {
+  return {
+    income: this.income || '',
+    foodAndToiletries: this.foodAndToiletries || '',
+    housingAndUtilities: this.housingAndUtilities || '',
+    transportation: this.transportation || '',
+    healthAndInsurance: this.healthAndInsurance || '',
+    recreationAndLeisure: this.recreationAndLeisure || '',
+    miscellaneous: this.miscellaneous || ''
   };
 };
 
@@ -35,5 +78,7 @@ UserSchema.statics.hashPassword = function(password) {
 };
 
 const User = mongoose.model('User', UserSchema);
+const Budget = mongoose.model('Budget', BudgetSchema);
 
 module.exports = {User};
+module.exports = {Budget};

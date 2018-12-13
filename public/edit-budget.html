@@ -30,10 +30,10 @@
 
 	<main role="main">
 		<h2 class="section-header">Edit Budget</h2>
-		<form class="form-style">
+		<form class="form-style" id="budget-form">
 			<fieldset id="budget-form-income">
 				<label for="total-income" class="form-label" id="form-label-main">Income</label>
-				<input type="number" name="total-imcome" id="total-imcome" class="form-input">
+				<input type="number" name="total-income" id="total-income" class="form-input" value="1000">
 			</fieldset>
 			<fieldset id="budget-form-main">
 				<label for="food-and-toiletries" class="form-label">Food & Toiletries</label>
@@ -41,42 +41,47 @@
 					<input type="number" name="food-and-toiletries" id="food-and-toiletries" class="form-percentage-input" min="0" max="100" value="0">
 					<span class="percent">%</span>
 					<span class="arrow">-></span>
-					<span class="percentage-result">$123</span>
+					<span class="percentage-result" id="food-and-toiletries-result"></span>
 				</div>
 				<label for="housing-and-utilities" class="form-label">Housing & Utilities</label>
 				<div class="input-wrapper">
 					<input type="number" name="housing-and-utilities" id="housing-and-utilities" class="form-percentage-input" min="0" max="100" value="0">
 					<span class="percent">%</span>
-					<span class="percentage-result">$123</span>
+					<span class="arrow">-></span>
+					<span class="percentage-result" id="housing-and-utilities-result"></span>
 				</div>
 				<label for="transportation" class="form-label">Transportation</label>
 				<div class="input-wrapper">
 					<input type="number" name="transportation" id="transportation" class="form-percentage-input" min="0" max="100" value="0">
 					<span class="percent">%</span>
-					<span class="percentage-result">$123</span>
+					<span class="arrow">-></span>
+					<span class="percentage-result" id="transportation-result"></span>
 				</div>
 				<label for="health-and-insurance" class="form-label">Health & Insurance</label>
 				<div class="input-wrapper">
 					<input type="number" name="health-and-insurance" id="health-and-insurance" class="form-percentage-input" min="0" max="100" value="0">
 					<span class="percent">%</span>
-					<span class="percentage-result">$123</span>
+					<span class="arrow">-></span>
+					<span class="percentage-result" id="health-and-insurance-result"></span>
 				</div>
 				<label for="recreation-and-leisure" class="form-label">Recreation & Leisure</label>
 				<div class="input-wrapper">
 					<input type="number" name="recreation-and-leisure" id="recreation-and-leisure" class="form-percentage-input" min="0" max="100" value="0">
 					<span class="percent">%</span>
-					<span class="percentage-result">$123</span>
+					<span class="arrow">-></span>
+					<span class="percentage-result" id="recreation-and-leisure-result"></span>
 				</div>
 				<label for="miscellaneous" class="form-label">Miscellaneous</label>
 				<div class="input-wrapper">
 					<input type="number" name="miscellaneous" id="miscellaneous" class="form-percentage-input" min="0" max="100" value="0">
 					<span class="percent">%</span>
-					<span class="percentage-result">$123</span>
+					<span class="arrow">-></span>
+					<span class="percentage-result" id="miscellaneous-result"></span>
 				</div>
 			</fieldset>
 			<fieldset id="budget-form-allocated">
 				<label for="total-allocated" class="form-label" id="form-label-main">Total Allocated</label>
-				<input type="number" name="total-allocated" id="total-allocated" class="form-input">
+				<input type="number" name="total-allocated" id="total-allocated" class="form-input" value="0" disabled>
 			</fieldset>
 			<input type="submit" value="Submit" name="signup-submit" class="submit-button">
 		</form>
@@ -88,5 +93,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script src="js/shared.js"></script>
+	<script src="js/edit-budget.js"></script>
 </body>
 </html>
