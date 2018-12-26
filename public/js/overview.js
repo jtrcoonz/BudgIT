@@ -61,6 +61,9 @@ $(function() {
 				`
       });
       $("#expense-list").html(renderedExpenses);
+      $("#expense-list-item").on("click", function(event) {
+        $("#expense-options").toggle();
+      })
     },
     error: function(err) {
       console.log(err);
