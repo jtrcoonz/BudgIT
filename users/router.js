@@ -13,15 +13,43 @@ const jwtAuth = passport.authenticate("jwt", { session: false });
 
 router.put("/", jwtAuth, jsonParser, (req, res) => {
   let userID = req.user.id;
-  // TODO
-  //update that user with the numbers we got on body from  overview.html
+  return User.findById(userID)
+  .then(function(user) {
+    const requiredFields = ["income", "foodAndToiletries", "housingAndUtilities", 
+    "transportation", "healthAndInsurance", "recreationAndLeisure", "miscellaneous"];
+    for (let i = 0; i < requiredFields.length; i++) {
+      const field = requiredFields[i];
+      if (!(field in req.body)) {
+        const message = `Missing \`${field}\` in request body`
+        console.error(message);
+        return res.status(400).send(message);
+      }
+    }
+    user.update({
+      income: req.body.income,
+      foodAndToiletries: req.body.foodAndToiletries,
+      housingAndUtilities: req.body.housingAndUtilities,
+      transportation: req.body.transportation,
+      healthAndInsurance: req.body.healthAndInsurance,
+      recreationAndLeisure: req.body.recreationAndLeisure,
+      miscellaneous: req.body.recreationAndLeisure
+    })
+    res.status(204).end();
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json({ message: "Internal server error" });
+  });
 });
 
 router.get("/", jwtAuth, (req, res) => {
   let userID = req.user.id;
-  // TODO
-  // send all the user info back!
-  // to update all percentages on overview.html
+  return User.findById(userID)
+  .then(user => res.json(user.serialize()))
+  .catch(err => {
+    console.log(err)
+    res.status(500).json({ message: "Internal server error" });
+  });
 });
 
 router.post("/", jsonParser, (req, res) => {
@@ -132,12 +160,5 @@ router.post("/", jsonParser, (req, res) => {
       res.status(500).json({ code: 500, message: "Internal server error" });
     });
 });
-
-// This is a test route
-// router.get("/", (req, res) => {
-//   return User.find()
-//     .then(users => res.json(users.map(user => user.serialize())))
-//     .catch(err => res.status(500).json({ message: "Internal server error" }));
-// });
 
 module.exports = { router };

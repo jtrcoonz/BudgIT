@@ -1,4 +1,4 @@
-let token = localStorage.getItem("token");
+// let token = localStorage.getItem("token");
 
 $("#expense-form").submit(function(event) {
   event.preventDefault();
@@ -10,8 +10,6 @@ $("#expense-form").submit(function(event) {
     date: $("#date").val()
   };
 
-  console.log(expense);
-
   const settings = {
     url: "/api/expenses/",
     data: JSON.stringify(expense),
@@ -20,7 +18,7 @@ $("#expense-form").submit(function(event) {
     dataType: "json",
     type: "POST",
     success: function(data) {
-      console.log(data);
+      window.location.href = "overview.html";
     },
     error: function(err) {
       console.log(err);

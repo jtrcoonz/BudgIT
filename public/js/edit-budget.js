@@ -1,5 +1,3 @@
-let token = localStorage.getItem("token");
-
 let totalIncome = $("#total-income").val();
 
 $("#total-income").on("input", function(event) {
@@ -33,16 +31,36 @@ $(".form-percentage-input").on("input", function(event) {
   }
 });
 
-
-
-TODO get the values from /api/users
-     populate the form!
+$(document).ready(function (event) {
+  const settings = {
+    url: "api/users",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    type: "GET",
+    success: function(data) {
+      $("#total-income").val(data.income);
+      $("#food-and-toiletries").val(data.foodAndToiletries);
+      $("#housing-and-utilities").val(data.housingAndUtilities);
+      $("#transportation").val(data.transportation);
+      $("#health-and-insurance").val(data.healthAndInsurance);
+      $("#recreation-and-leisure").val(data.recreationAndLeisure);
+      $("#miscellaneous").val(data.miscellaneous);
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  };
+  $.ajax(settings);
+});
 
 $("#budget-form").submit(function(event) {
   event.preventDefault();
   let token = localStorage.getItem("token");
   let budget = {
-    income: $("#total-income").val(),
+    income: Number($("#total-income").val()),
     foodAndToiletries: Number($("#food-and-toiletries").val()),
     housingAndUtilities: Number($("#housing-and-utilities").val()),
     transportation: Number($("#transportation").val()),
@@ -60,7 +78,7 @@ $("#budget-form").submit(function(event) {
     dataType: "json",
     type: "PUT",
     success: function(data) {
-      console.log(data);
+      window.location.href = "overview.html";
     },
     error: function(err) {
       console.log(err);

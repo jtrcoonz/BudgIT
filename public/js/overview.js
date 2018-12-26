@@ -1,5 +1,3 @@
-let token = localStorage.getItem("token");
-
 let options = {
   weekday: "long",
   year: "numeric",
@@ -8,16 +6,40 @@ let options = {
 };
 
 
-
-TODO get the values from /api/users
-     populate the upper section. !  -> xxx/1500
+$(function() {
+  const settings = {
+    url: "api/users/",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    type: "GET",
+    success: function(data) {
+      console.log(data);
+      $("#remaining-budget-number").html(data.income);
+      $(".food-and-toiletries-overview").html(data.foodAndToiletries);
+      $(".housing-and-utilities-overview").html(data.housingAndUtilities);
+      $(".transportation-overview").html(data.transportation);
+      $(".health-and-insurance-overview").html(data.healthAndInsurance);
+      $(".recreation-and-leisure-overview").html(data.recreationAndLeisure);
+      $(".miscellaneous-overview").html(data.miscellaneous);
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  };
+  $.ajax(settings);
+});
 
 
 
 $(function() {
   const settings = {
     url: "/api/expenses/",
-    headers: { Authorization: `Bearer ${token}` },
+    headers: {
+      Authorization: `Bearer ${token}` 
+    },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     type: "GET",
@@ -36,7 +58,7 @@ $(function() {
 						${expense.category}</p>
 					</div>
 				</div>
-				`;
+				`
       });
       $("#expense-list").html(renderedExpenses);
     },

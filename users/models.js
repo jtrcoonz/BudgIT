@@ -14,8 +14,14 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  firstName: {
+    type: String,
+    required: true 
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
   income: {
     type: Number,
     default: 1000
@@ -43,6 +49,10 @@ const UserSchema = mongoose.Schema({
   miscellaneous: {
     type: Number,
     default: 10
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
   }
 });
 
