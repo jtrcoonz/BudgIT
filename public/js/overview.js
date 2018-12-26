@@ -5,7 +5,6 @@ let options = {
   day: "numeric"
 };
 
-
 $(function() {
   const settings = {
     url: "api/users/",
@@ -18,12 +17,15 @@ $(function() {
     success: function(data) {
       console.log(data);
       $("#remaining-budget-number").html(data.income);
-      $(".food-and-toiletries-overview").html(data.foodAndToiletries);
-      $(".housing-and-utilities-overview").html(data.housingAndUtilities);
-      $(".transportation-overview").html(data.transportation);
-      $(".health-and-insurance-overview").html(data.healthAndInsurance);
-      $(".recreation-and-leisure-overview").html(data.recreationAndLeisure);
-      $(".miscellaneous-overview").html(data.miscellaneous);
+
+      let income = data.income / 100;
+
+      $(".food-and-toiletries").html(data.foodAndToiletries * income);
+      $(".housing-and-utilities").html(data.housingAndUtilities * income);
+      $(".transportation").html(data.transportation * income);
+      $(".health-and-insurance").html(data.healthAndInsurance * income);
+      $(".recreation-and-leisure").html(data.recreationAndLeisure * income);
+      $(".miscellaneous").html(data.miscellaneous * income);
     },
     error: function(err) {
       console.log(err);
@@ -32,42 +34,52 @@ $(function() {
   $.ajax(settings);
 });
 
+function renderExpenses(data) {
+  let renderedExpenses = data.expenses.map(function(expense) {
+    let date = new Date(expense.date);
+    return `
+    <div class="expense-list-item">
+      <div class="list-item-left">
+        <p><span>${expense.description}</span></p>
+        <p>
+          ${date.toLocaleDateString("en-US")}
+          <span class="expense-list-item-delete" data-id="${expense.id}">
+            X
+          </span>
+        </p>
+      </div>
+      <div class="list-item-right">
+        <p><span>$</span><span>${expense.value}</span></p>
+        <p>${expense.category}</p>
 
+
+      </div>
+    </div>
+    `;
+  });
+  $("#expense-list").html(renderedExpenses);
+}
 
 $(function() {
   const settings = {
     url: "/api/expenses/",
     headers: {
-      Authorization: `Bearer ${token}` 
+      Authorization: `Bearer ${token}`
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     type: "GET",
-    success: function(data) {
-      console.log(data);
-      let renderedExpenses = data.expenses.map(function(expense) {
-        let date = new Date(expense.date);
-        return `
-				<div id="expense-list-item">
-					<div id="list-item-left">
-						<p><span>${expense.description}</span><br>
-						${date.toLocaleDateString("en-US")}</p>
-					</div>
-					<div id="list-item-right">
-						<p><span>$</span><span>${expense.value}</span><br>
-						${expense.category}</p>
-					</div>
-				</div>
-				`
-      });
-      $("#expense-list").html(renderedExpenses);
-      $("#expense-list-item").on("click", function(event) {
-        $("#expense-options").toggle();
-      })
-    },
+    success: renderExpenses,
     error: function(err) {
       console.log(err);
     }
   };
   $.ajax(settings);
+});
+
+$("#expense-list").on("click", ".expense-list-item-delete", function(event) {
+  let id = $(event.currentTarget).attr("data-id");
+  alert("delete " + id + " from server");
+  // TODO
+  // ajax delete request with that id.
 });

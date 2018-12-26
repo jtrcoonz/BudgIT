@@ -14,42 +14,51 @@ const jwtAuth = passport.authenticate("jwt", { session: false });
 router.put("/", jwtAuth, jsonParser, (req, res) => {
   let userID = req.user.id;
   return User.findById(userID)
-  .then(function(user) {
-    const requiredFields = ["income", "foodAndToiletries", "housingAndUtilities", 
-    "transportation", "healthAndInsurance", "recreationAndLeisure", "miscellaneous"];
-    for (let i = 0; i < requiredFields.length; i++) {
-      const field = requiredFields[i];
-      if (!(field in req.body)) {
-        const message = `Missing \`${field}\` in request body`
-        console.error(message);
-        return res.status(400).send(message);
+    .then(function(user) {
+      const requiredFields = [
+        "income",
+        "foodAndToiletries",
+        "housingAndUtilities",
+        "transportation",
+        "healthAndInsurance",
+        "recreationAndLeisure",
+        "miscellaneous"
+      ];
+      for (let i = 0; i < requiredFields.length; i++) {
+        const field = requiredFields[i];
+        if (!(field in req.body)) {
+          const message = `Missing \`${field}\` in request body`;
+          console.error(message);
+          return res.status(400).send(message);
+        }
       }
-    }
-    user.update({
-      income: req.body.income,
-      foodAndToiletries: req.body.foodAndToiletries,
-      housingAndUtilities: req.body.housingAndUtilities,
-      transportation: req.body.transportation,
-      healthAndInsurance: req.body.healthAndInsurance,
-      recreationAndLeisure: req.body.recreationAndLeisure,
-      miscellaneous: req.body.recreationAndLeisure
+
+      user.income = req.body.income;
+      user.foodAndToiletries = req.body.foodAndToiletries;
+      user.housingAndUtilities = req.body.housingAndUtilities;
+      user.transportation = req.body.transportation;
+      user.healthAndInsurance = req.body.healthAndInsurance;
+      user.recreationAndLeisure = req.body.recreationAndLeisure;
+      user.miscellaneous = req.body.miscellaneous;
+      return user.save();
     })
-    res.status(204).end();
-  })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json({ message: "Internal server error" });
-  });
+    .then(() => {
+      return res.status(204).end();
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "Internal server error" });
+    });
 });
 
 router.get("/", jwtAuth, (req, res) => {
   let userID = req.user.id;
   return User.findById(userID)
-  .then(user => res.json(user.serialize()))
-  .catch(err => {
-    console.log(err)
-    res.status(500).json({ message: "Internal server error" });
-  });
+    .then(user => res.json(user.serialize()))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "Internal server error" });
+    });
 });
 
 router.post("/", jsonParser, (req, res) => {

@@ -2,8 +2,7 @@ let totalIncome = $("#total-income").val();
 
 $("#total-income").on("input", function(event) {
   totalIncome = $(this).val();
-  $(".form-percentage-input").val(0);
-  $(".percentage-result").html(0);
+  $(".form-percentage-input").trigger("input");
 });
 
 $(".form-percentage-input").on("input", function(event) {
@@ -31,7 +30,7 @@ $(".form-percentage-input").on("input", function(event) {
   }
 });
 
-$(document).ready(function (event) {
+$(document).ready(function(event) {
   const settings = {
     url: "api/users",
     headers: {
@@ -48,6 +47,8 @@ $(document).ready(function (event) {
       $("#health-and-insurance").val(data.healthAndInsurance);
       $("#recreation-and-leisure").val(data.recreationAndLeisure);
       $("#miscellaneous").val(data.miscellaneous);
+
+      $(".form-percentage-input").trigger("input");
     },
     error: function(err) {
       console.log(err);
