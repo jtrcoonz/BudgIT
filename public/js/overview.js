@@ -86,8 +86,8 @@ $("#expense-list").on("click", ".expense-list-item-delete", function(event) {
     dataType: "json",
     type: "DELETE",
     success: function() {
-      $(event.currentTarget).parent(".expense-list-item").remove();
-      alert("Removed Expense");
+      $(event.currentTarget).parents(".expense-list-item").remove();
+      // alert("Removed Expense");
     },
     error: function(err) {
       console.log(err);

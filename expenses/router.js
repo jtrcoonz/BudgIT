@@ -12,6 +12,19 @@ router.get("/", jwtAuth, (req, res) => {
     user: req.user.id
   })
     .then(expenses => {
+
+      let sums = {
+        food_toiletries: 0,
+				housing_utilities: 0,
+				transportation: 0,
+				health_insurance: 0,
+				recreation_leisure: 0,
+				miscellaneous: 0,
+      }
+
+   //   expenses.forEach(expense => expense.map( exense))
+
+
       res.json({
         expenses: expenses.map(expense => expense.serialize())
       });
