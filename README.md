@@ -2,6 +2,11 @@ BudgIT is great!
 
 live page: https://jtrcoonz.github.io/BudgIT/
 
-TODO
-Log out: an event listener on shared.js that captures the button and deletes the token.
-local set "token" ""
+TODO CSS + HTML
+- Nav menu: more space
+- required fields on forms
+- Getting the footer to show at the bottom  in add-expense.html -> height for main `calc(100% - 214px)`
+
+TODO JS 
+- Overview page: finish all fields as food_toiletries
+- Better error message for auth

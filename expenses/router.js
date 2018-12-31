@@ -13,20 +13,25 @@ router.get("/", jwtAuth, (req, res) => {
   })
     .then(expenses => {
 
-      let sums = {
+      let expenseTotals = {
         food_toiletries: 0,
 				housing_utilities: 0,
 				transportation: 0,
 				health_insurance: 0,
 				recreation_leisure: 0,
-				miscellaneous: 0,
+        miscellaneous: 0,
+        total:0
       }
 
-   //   expenses.forEach(expense => expense.map( exense))
+     expenses.forEach(expense => {
+       expenseTotals[expense.category] += expense.value
+       expenseTotals.total += expense.value
+     })
 
 
       res.json({
-        expenses: expenses.map(expense => expense.serialize())
+        expenses: expenses.map(expense => expense.serialize()),
+        expenseTotals
       });
     })
     .catch(err => {

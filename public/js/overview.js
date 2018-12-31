@@ -35,6 +35,12 @@ $(function() {
 });
 
 function renderExpenses(data) {
+
+  console.log(data.expenseTotals)
+
+  $(".spent-budget").html(data.expenseTotals.total);
+  $(".food-and-toiletries-expense").html(data.expenseTotals.food_toiletries);
+
   let renderedExpenses = data.expenses.map(function(expense) {
     let date = new Date(expense.date);
     return `

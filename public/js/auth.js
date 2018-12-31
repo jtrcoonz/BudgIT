@@ -40,6 +40,11 @@ function signup(signUpUser) {
       login(signUpUser, "edit-budget.html");
     },
     error: function(err) {
+
+      // TODO ERROR MESSAGES HERE
+
+      //  $(".error").text(err.message)
+
       console.log(err);
     }
   };
