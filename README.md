@@ -9,4 +9,5 @@ TODO CSS + HTML
 
 TODO JS 
 - Overview page: finish all fields as food_toiletries
-- Better error message for auth
+- Better error message for auth.js
+
