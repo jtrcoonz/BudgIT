@@ -26,6 +26,7 @@
 .row {
   width: 90%;
   margin: 0 auto;
+  font-size: 0;
 }
 .column {
   width: 100%;
@@ -37,6 +38,7 @@
   white-space: nowrap;
   overflow: hidden;
   font-weight: 300;
+  font-size: 15px;
   margin: 10px auto;
 }
 .column-header {

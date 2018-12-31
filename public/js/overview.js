@@ -51,8 +51,6 @@ function renderExpenses(data) {
       <div class="list-item-right">
         <p><span>$</span><span>${expense.value}</span></p>
         <p>${expense.category}</p>
-
-
       </div>
     </div>
     `;
@@ -79,7 +77,21 @@ $(function() {
 
 $("#expense-list").on("click", ".expense-list-item-delete", function(event) {
   let id = $(event.currentTarget).attr("data-id");
-  alert("delete " + id + " from server");
-  // TODO
-  // ajax delete request with that id.
+  const settings = {
+    url: `/api/expenses/${id}`,
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    type: "DELETE",
+    success: function() {
+      $(event.currentTarget).parent(".expense-list-item").remove();
+      alert("Removed Expense");
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  };
+  $.ajax(settings);
 });
