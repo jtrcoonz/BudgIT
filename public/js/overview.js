@@ -40,6 +40,11 @@ function renderExpenses(data) {
 
   $(".spent-budget").html(data.expenseTotals.total);
   $(".food-and-toiletries-expense").html(data.expenseTotals.food_toiletries);
+  $(".housing-and-utilities-expense").html(data.expenseTotals.housing_utilities);
+  $(".transportation-expense").html(data.expenseTotals.transportation);
+  $(".health-and-insurance-expense").html(data.expenseTotals.health_insurance);
+  $(".recreation-and-leisure-expense").html(data.expenseTotals.recreation_leisure);
+  $(".miscellaneous-expense").html(data.expenseTotals.miscellaneous);
 
   let renderedExpenses = data.expenses.map(function(expense) {
     let date = new Date(expense.date);
@@ -93,7 +98,7 @@ $("#expense-list").on("click", ".expense-list-item-delete", function(event) {
     type: "DELETE",
     success: function() {
       $(event.currentTarget).parents(".expense-list-item").remove();
-      // alert("Removed Expense");
+      window.location.reload();
     },
     error: function(err) {
       console.log(err);

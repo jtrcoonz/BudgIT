@@ -1,6 +1,9 @@
 * {
 	box-sizing: border-box;
 }
+main {
+	height: calc(100% - 214px);
+}
 #value-container {
 	margin: 0 auto;
 	width: 85%;

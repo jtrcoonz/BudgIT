@@ -35,9 +35,9 @@
 		<h2 class="section-header">Add Expense</h2>
 		<form class="form-style" id="expense-form">
 			<label for="description" class="form-label">Description</label>
-			<input type="text" name="description" id="description" class="form-input">
+			<input type="text" name="description" id="description" class="form-input" required>
 			<label for="category" class="form-label">Select Category</label>
-			<select name="category" id="category" class="form-input">
+			<select name="category" id="category" class="form-input" required>
 				<option value="food_toiletries">Food & Toiletries</option>
 				<option value="housing_utilities">Housing & Utilities</option>
 				<option value="transportation">Transportation</option>
@@ -47,11 +47,11 @@
 			</select>
 			<label for="value" class="form-label">Enter Expense</label>
 			<div id="value-container">
-				<input type="text" name="value" id="value">
+				<input type="text" name="value" id="value" required>
 				<span>$</span>
 			</div>
 			<label for="date" class="form-label">Date</label>
-			<input type="date" name="date" id="date" class="form-input">
+			<input type="date" name="date" id="date" class="form-input" required>
 			<input type="submit" value="Submit" name="login-submit" class="submit-button">
 		</form>
 	</main>
