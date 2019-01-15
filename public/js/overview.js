@@ -5,7 +5,31 @@ let options = {
   day: "numeric"
 };
 
+
 $(function() {
+  getTopExpenseData();
+  getExpenseData()
+});
+
+
+function getExpenseData() {
+  const settings = {
+    url: "/api/expenses/",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    type: "GET",
+    success: renderExpenses,
+    error: function(err) {
+      console.log(err);
+    }
+  };
+  $.ajax(settings);
+}
+
+function getTopExpenseData() {
   const settings = {
     url: "api/users/",
     headers: {
@@ -17,9 +41,7 @@ $(function() {
     success: function(data) {
       console.log(data);
       $("#remaining-budget-number").html(data.income);
-
       let income = data.income / 100;
-
       $(".food-and-toiletries").html(data.foodAndToiletries * income);
       $(".housing-and-utilities").html(data.housingAndUtilities * income);
       $(".transportation").html(data.transportation * income);
@@ -32,7 +54,7 @@ $(function() {
     }
   };
   $.ajax(settings);
-});
+}
 
 function renderExpenses(data) {
 
@@ -69,22 +91,6 @@ function renderExpenses(data) {
   $("#expense-list").html(renderedExpenses);
 }
 
-$(function() {
-  const settings = {
-    url: "/api/expenses/",
-    headers: {
-      Authorization: `Bearer ${token}`
-    },
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    type: "GET",
-    success: renderExpenses,
-    error: function(err) {
-      console.log(err);
-    }
-  };
-  $.ajax(settings);
-});
 
 $("#expense-list").on("click", ".expense-list-item-delete", function(event) {
   let id = $(event.currentTarget).attr("data-id");
@@ -97,8 +103,8 @@ $("#expense-list").on("click", ".expense-list-item-delete", function(event) {
     dataType: "json",
     type: "DELETE",
     success: function() {
-      $(event.currentTarget).parents(".expense-list-item").remove();
-      window.location.reload();
+      //$(event.currentTarget).parents(".expense-list-item").remove();
+      getExpenseData();
     },
     error: function(err) {
       console.log(err);
