@@ -41,6 +41,7 @@ function signup(signUpUser) {
     },
     error: function(err) {
       console.log(err);
+      $("#err-div-signup").text(`${err.responseJSON.location} ${err.responseJSON.message.toLowerCase()}`)
     }
   };
   $.ajax(settings);
@@ -60,6 +61,7 @@ function login(loginUser, redirect = "overview.html") {
     },
     error: function(err) {
       console.log(err);
+      $("#err-div-login").text("Incorrect username or password")
     }
   };
   $.ajax(settings);
