@@ -1,3 +1,6 @@
 main {
 	height: calc(100% - 214px);
 }
+#err-div-login {
+	color: red;
+}

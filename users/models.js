@@ -28,11 +28,11 @@ const UserSchema = mongoose.Schema({
   },
   foodAndToiletries: {
     type: Number,
-    default: 50
+    default: 15
   },
   housingAndUtilities: {
     type: Number,
-    default: 10
+    default: 30
   },
   transportation: {
     type: Number,
@@ -40,15 +40,15 @@ const UserSchema = mongoose.Schema({
   },
   healthAndInsurance: {
     type: Number,
-    default: 10
+    default: 25
   },
   recreationAndLeisure: {
     type: Number,
-    default: 10
+    default: 15
   },
   miscellaneous: {
     type: Number,
-    default: 10
+    default: 5
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

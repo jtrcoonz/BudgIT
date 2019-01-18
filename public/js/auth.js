@@ -41,7 +41,9 @@ function signup(signUpUser) {
     },
     error: function(err) {
       console.log(err);
-      $("#err-div-signup").text(`${err.responseJSON.location} ${err.responseJSON.message.toLowerCase()}`)
+      $("#err-div-signup").text(`${err.responseJSON.message.toLowerCase()}`)
+      .css({"color":"red", "background-color":"white", "width":"60%", "margin":"0 auto",
+      "margin-top":"40px", "margin-bottom":"20px", "border-radius":"4px", "padding":"2px"})
     }
   };
   $.ajax(settings);
